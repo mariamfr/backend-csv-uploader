@@ -22,10 +22,18 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use(cors())
 
+/*
 app.use('/', express.static(__dirname + '/dist/frontend-csv-parser/browser'))
 app.get('/*', (req, res, next) => {
     res.sendFile(path.resolve(__dirname + '/dist/frontend-csv-parser/browser'))
 })
+*/
+
+app.use('/', express.static(__dirname + '/dist/frontend-csv-parser/browser'));
+app.get('/*', (req, res, next) => {
+    res.sendFile(path.resolve(__dirname + "/dist/frontend-csv-parser/browser/index.html"));
+});
+
 
 //para usar las ruta
 app.use('/', api)
